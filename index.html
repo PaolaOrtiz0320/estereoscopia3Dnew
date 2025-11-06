@@ -1,0 +1,65 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>WebXR — Dos Entornos con Menú VR</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- NAV superior (glass + botones) -->
+  <header id="topbar" class="glass">
+    <div class="brand">
+      <span class="brand-logo">🕶️</span>
+      <span class="brand-text">WebXR Dual Scenes</span>
+    </div>
+    <nav class="nav-actions">
+      <button id="nav-menu" class="btn ghost">Menú</button>
+      <button id="nav-e1" class="btn">Mapa (E1)</button>
+      <button id="nav-e2" class="btn">Personaje (E2)</button>
+      <div id="vr-slot"></div>
+    </nav>
+  </header>
+
+  <div id="app-container"></div>
+
+  <!-- Overlay UI (para desktop/no-VR) -->
+  <div id="ui-overlay">
+    <div id="menu-ui" class="menu glass">
+      <h1>Menú Principal</h1>
+      <button id="btn-to-env1" class="btn">Ir al Mapa (Entorno 1)</button>
+      <button id="btn-to-env2" class="btn">Ir al Personaje (Entorno 2)</button>
+    </div>
+    <div id="game-ui" class="menu glass">
+      <button id="btn-to-menu" class="btn ghost">Volver al Menú</button>
+      <button id="btn-to-other" class="btn">Ir al otro entorno</button>
+    </div>
+  </div>
+
+  <!-- Footer minimalista -->
+  <footer id="app-footer" class="glass">
+    <div class="footer-left">
+      <span>© <span id="year"></span> VR Demo</span>
+      <span class="dot">•</span>
+      <span>Hecho con Three.js + WebXR</span>
+    </div>
+    <div class="footer-right">
+      <span>Desarrolladora: Gabriela Paola Ortiz Velazquez</span>
+      <!-- Cambia el nombre si lo deseas -->
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
