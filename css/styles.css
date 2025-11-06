@@ -1,0 +1,135 @@
+/* styles.css */
+
+/* Reset básico */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+  background: radial-gradient(1000px 600px at 20% 0%, #0e1b2a 0%, #0a0f17 60%, #070b11 100%);
+  color: #e8eef7;
+  overflow: hidden;
+}
+
+/* Contenedor del lienzo */
+#app-container {
+  position: fixed; inset: 0;
+}
+
+/* Glass util */
+.glass {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+/* TOPBAR */
+#topbar {
+  position: fixed; top: 12px; left: 12px; right: 12px;
+  height: 56px;
+  border-radius: 14px;
+  padding: 0 12px;
+  display: flex; align-items: center; justify-content: space-between;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.brand-logo { font-size: 1.1rem; }
+.brand-text { font-size: 0.95rem; opacity: 0.95; }
+
+.nav-actions {
+  display: flex; align-items: center; gap: 10px;
+}
+
+/* Botones modernos */
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #0b1220;
+  background: linear-gradient(180deg, #6cc0ff 0%, #3aa1ff 100%);
+  box-shadow: 0 6px 16px rgba(58,161,255,0.35);
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, opacity .2s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(58,161,255,0.45); }
+.btn:active { transform: translateY(0); }
+
+.btn.ghost {
+  background: transparent;
+  color: #d5e6ff;
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: none;
+}
+.btn.ghost:hover { background: rgba(255,255,255,0.08); }
+
+/* VR button slot (el botón de WebXR se injecta aquí) */
+#vr-slot {
+  display: flex; align-items: center;
+}
+#vr-slot > button {
+  /* estiliza el botón generado por VRButton */
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  padding: 10px 14px !important;
+  border: 0 !important;
+  background: linear-gradient(180deg, #9bffbf 0%, #37e08f 100%) !important;
+  color: #062412 !important;
+  box-shadow: 0 6px 16px rgba(55,224,143,0.35) !important;
+}
+
+/* Overlay UI (para no-VR) */
+#ui-overlay {
+  position: fixed; inset: 0;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  pointer-events: none;
+  color: #eaf4ff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+  z-index: 5;
+}
+
+.menu {
+  border-radius: 18px;
+  padding: 22px;
+  display: flex; flex-direction: column; gap: 14px;
+  pointer-events: auto;
+  min-width: 280px;
+}
+
+#menu-ui, #game-ui { display: none; }
+
+/* Footer */
+#app-footer {
+  position: fixed; left: 12px; right: 12px; bottom: 12px;
+  height: 46px;
+  border-radius: 12px;
+  padding: 0 14px;
+  display: flex; align-items: center; justify-content: space-between;
+  z-index: 10;
+  pointer-events: auto;
+  font-size: 0.88rem;
+  color: #cfe4ff;
+  gap: 12px;
+}
+.footer-left, .footer-right {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.dot { opacity: .5; }
+
+/* Responsivo */
+@media (max-width: 640px) {
+  .brand-text { display: none; }
+  #topbar { height: auto; padding: 8px; gap: 8px; flex-wrap: wrap; }
+  .nav-actions { width: 100%; justify-content: space-between; }
+  #app-footer { font-size: .8rem; }
+}
